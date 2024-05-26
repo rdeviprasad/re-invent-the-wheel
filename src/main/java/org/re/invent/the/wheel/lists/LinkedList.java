@@ -1,5 +1,7 @@
 package org.re.invent.the.wheel.lists;
 
+import org.re.invent.the.wheel.common.Node;
+
 public class LinkedList {
   Node head;
 
@@ -10,15 +12,15 @@ public class LinkedList {
     }
 
     Node current = head;
-    while(current.next != null) {
-      current = current.next;
+    while(current.getNext() != null) {
+      current = current.getNext();
     }
-    current.next = new Node(data);
+    current.setNext(new Node(data));
   }
 
   public void prepend(int data) {
     Node newHead = new Node(data);
-    newHead.next = head;
+    newHead.setNext(head);
     head = newHead;
   }
 
@@ -27,25 +29,25 @@ public class LinkedList {
       return;
     }
 
-    if (head.data == data) {
-      head = head.next;
+    if (head.getData() == data) {
+      head = head.getNext();
       return;
     }
     Node current = head;
-    while(current.next != null) {
-      if (current.next.data == data) {
-        current.next = current.next.next;
+    while(current.getNext() != null) {
+      if (current.getNext().getData() == data) {
+        current.setNext(current.getNext().getNext());
         return;
       }
-      current = current.next;
+      current = current.getNext();
     }
   }
 
   public void print() {
     Node current = head;
     while(current != null) {
-      System.out.print(current.data + " ");
-      current = current.next;
+      System.out.print(current.getData() + " ");
+      current = current.getNext();
     }
     System.out.println();
   }
