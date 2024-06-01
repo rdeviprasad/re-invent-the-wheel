@@ -2,8 +2,6 @@
 - Linked List
 - Stack
 - Queue
-- Array
-- String
 - Heaps
 - Binary Tree
 - Binary Search Tree
