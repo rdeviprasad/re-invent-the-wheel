@@ -134,3 +134,61 @@ Operators perform operations on operands.
 ```Java
 condition1 ? value1 : value2
 ```
+# The static keyword
+static is used to define members which belong to the class rather than to a class instance (object).
+
+* A static field belongs to the class
+* A static method belongs to the class
+* A static block gets executed when the class is loaded into the memory
+* A static class is a nested class that do not have access to the enclosing class's instance variables
+
+# Nested Classes
+A class defined inside another class
+
+* Static nested class
+* inner class
+
+## Static Nested Class
+Nested class which is static
+
+```Java
+public class Person {
+
+    private final int age;
+    private final String name;
+
+    private Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public static Builder {
+
+        // builder code
+    }
+}
+```
+
+## Inner Class
+Nested class inside another class
+
+```Java
+public class Person {
+
+    class Identity {
+        String value;
+        boolean valid;
+        int type;
+    }
+}
+
+Person person = new Person();
+Person.Identity identity = person.new Identity();
+```
+
+Types of inner class
+* Member inner class - defined in another class but outside a method
+* Local inner class - defined inside a method
+* Anonymous inner class - a class without a name inside a method
+* Lambda expression - shortcut for anonymous inner class
+
