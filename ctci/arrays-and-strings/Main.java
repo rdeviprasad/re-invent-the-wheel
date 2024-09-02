@@ -11,11 +11,39 @@ public class Main {
         //     System.out.println("Need the string to check uniqueness");
         // }
 
-        if(args.length < 2) {
-            System.out.println("Need two strings to check for permutation");
+        // if(args.length < 2) {
+        //     System.out.println("Need two strings to check for permutation");
+        // } else {
+        //     System.out.println(isPermutation(args[0], args[1]));
+        // }
+
+        if(args.length >= 2) {
+            String s = "Mr John Smith    ";
+            int len = 13;
+            String result = urlify(s, len);
+            System.out.println(result);
         } else {
-            System.out.println(isPermutation(args[0], args[1]));
+            System.out.println("Need two arguments for urlify");
         }
+    }
+
+    private static String urlify(String str, int actualLength) {
+        char[] s = str.toCharArray();
+        int end = actualLength - 1;
+        while(end >= 0) {
+            if(s[end] == ' ') {
+                for(int j = actualLength - 1; j > end; j--) {
+                    s[j + 2] = s[j];
+                }
+                s[end] = '%';
+                s[end + 1] = '2';
+                s[end + 2] = '0';
+                actualLength += 2;
+            } else {
+                end--;
+            }
+        }
+        return new String(s);
     }
 
     private static boolean isPermutation(String first, String second) {
