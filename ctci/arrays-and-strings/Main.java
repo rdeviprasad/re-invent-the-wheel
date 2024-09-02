@@ -29,18 +29,22 @@ public class Main {
 
     private static String urlify(String str, int actualLength) {
         char[] s = str.toCharArray();
-        int end = actualLength - 1;
-        while(end >= 0) {
-            if(s[end] == ' ') {
-                for(int j = actualLength - 1; j > end; j--) {
-                    s[j + 2] = s[j];
-                }
-                s[end] = '%';
-                s[end + 1] = '2';
-                s[end + 2] = '0';
-                actualLength += 2;
+        int spaces = 0;
+        for(int i = 0; i < actualLength; i++) {
+            if(s[i] == ' ') {
+                spaces++;
+            }
+        }
+        int index = actualLength + spaces * 2;
+        for(int i = actualLength - 1; i >= 0; i--) {
+            if(s[i] == ' ') {
+                s[index - 1] = '0';
+                s[index - 2] = '2';
+                s[index - 3] = '%';
+                index -= 3;
             } else {
-                end--;
+                s[index - 1] = s[i];
+                index--;
             }
         }
         return new String(s);
