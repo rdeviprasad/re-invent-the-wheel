@@ -125,3 +125,16 @@ ans = 4
 ```
 
 Here if we use same pattern as combination sum, we run into double counting. Hence state is dp[s][last] where s is sum and last is the last used denomination
+
+## Classical DP Problems
+- 0-1 Knapsack
+- Subset Sum
+- Longest Increasing Subsequence
+- Counting all possible paths in a matrix
+- Longest Common Subsequence
+- Longest path in a DAG
+- Longest Palindromic Subsequence
+- Rod Cutting
+- Edit Distance
+- Text Justification
+- Egg dropping problem
